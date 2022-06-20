@@ -1,5 +1,5 @@
 {
-  "name": "testapp",
+  "name": "projectapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,8 +36,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix projectapp && npm run build --prefix from projectapp",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "nodemon": "nodemon server.js"
