@@ -72,7 +72,7 @@ function Header() {
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
     axios
-          .get("http://localhost:4000/product-api/getproduct/"+searchItem.productname)
+          .get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
           .then((response) => {
             //if product received
             if (response.data.message === "found") {

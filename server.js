@@ -14,6 +14,18 @@ app.use(exp.static(path.join(__dirname,'./build')))
 //DB connection URL
 const DBurl=process.env.DATABASE_CONNECTION_URL;
 
+// ---------------deployment--------------- 
+const __dirname1=path.resolve();
+if (process.env.NODE_ENV==="production"){
+  app.use(express.static(path.join(__dirname1,"./build")))
+
+  app.get('*',(request,response)=>{
+    response.sendFile(path.resolve(__dirname1,'build','index.html'))
+  })
+}
+
+
+// ---------------deployment----------------
 //connect with mongoDB server
 mclient.connect(DBurl)
 .then((client)=>{

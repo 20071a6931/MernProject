@@ -18,7 +18,7 @@ const Changepassword = () => {
     let token=localStorage.getItem("token")
     if (user.newpassword===user.confirmpassword){
       axios
-        .put("http://localhost:4000/user-api/update-password",{headers:{Authorization:"Bearer "+token}}, user)
+        .put("https://e-medicare-react.herokuapp.com/user-api/update-password",{headers:{Authorization:"Bearer "+token}}, user)
         .then((response) => {
           alert(response.data.message);
           //if password updated

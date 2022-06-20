@@ -32,7 +32,7 @@ function Signup() {
     formData.append("photo", img);
     //http post req
     axios
-      .post("http://localhost:4000/user-api/create-user", formData)
+      .post("https://e-medicare-react.herokuapp.com/user-api/create-user", formData)
       .then((response) => {
         alert(response.data.message);
         //if user created

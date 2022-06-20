@@ -31,7 +31,7 @@ const Updateproducts = () => {
         // ,{headers:{Authorization:"Bearer "+token}}
         //http post req
         axios
-          .put("http://localhost:4000/product-api/update-product",formData)
+          .put("https://e-medicare-react.herokuapp.com/product-api/update-product",formData)
           .then((response) => {
             //if user created
             if (response.data.message === "Product modified") {

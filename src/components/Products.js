@@ -6,7 +6,7 @@ function Products() {
   let [productsList, setProductsList] = useState([]);
 
     axios
-    .get("http://localhost:4000/product-api/getproducts")
+    .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
     .then((response) => {
       setProductsList(response.data.payload);
     })
