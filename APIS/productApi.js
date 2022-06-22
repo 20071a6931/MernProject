@@ -36,7 +36,7 @@ var upload = multer({ storage: cloudinaryStorage });
 
 //to extract body of request object
 productApp.use(exp.json());
-
+// productApp.use(exp.urlencoded());
 //get all products
 productApp.get("/getproducts",expressAsyncHandler(async(request,response)=>{
 
@@ -57,7 +57,7 @@ productApp.get("/getproduct/:productname",expressAsyncHandler(async(request,resp
   // get product by product name
   let product=await productCollectionObject.findOne({productname:pname})
   // send response
-  // if product not found it receives null
+  //if product not found it receives null
   if(product===null){
     response.send({message:"product does not exist"})
   }

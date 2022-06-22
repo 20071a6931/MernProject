@@ -74,6 +74,7 @@ function Header() {
     axios
           .get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
           .then((response) => {
+            console.log(response.data.message);
             //if product received
             if (response.data.message === "found") {
                 console.log("product received");

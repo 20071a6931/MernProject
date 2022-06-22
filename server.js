@@ -18,7 +18,7 @@ const DBurl=process.env.DATABASE_CONNECTION_URL;
 // const __dirname1=path.resolve();
 if (process.env.NODE_ENV==="production"){
   app.use(exp.static(path.join(__dirname,"./build")))
-
+  
   app.get('*',(request,response)=>{
     response.sendFile(path.resolve(__dirname,'build','index.html'))
   })
@@ -71,5 +71,5 @@ app.use((error, request, response, next) => {
 });
 
 //assign port number
-const port=process.env.PORT;
+const port=process.env.PORT|| 4000;
 app.listen(port, () => console.log(`Web server listening on port ${port}`));
