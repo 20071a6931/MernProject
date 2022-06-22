@@ -1,15 +1,20 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import Productone from "./Productone";
 
 function Productsone() {
   let [productsList, setProductsList] = useState([]);
 
-    axios
-    .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
-    .then((response) => {
-      setProductsList(response.data.payload);
-    })
+  useEffect(
+    ()=>{
+      axios
+  .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
+  .then((response) => {
+    console.log(response);
+    setProductsList(response.data.payload);
+  })
+    },[]
+  )
 
   return (
     <div className="text-center">
