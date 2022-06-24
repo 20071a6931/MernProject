@@ -55,10 +55,10 @@ productApp.get("/getproduct/:productname",expressAsyncHandler(async(request,resp
   //get productname to be found
   let pname=(request.params.productname)
   // get product by product name
-  let product=await productCollectionObject.findOne({productname:pname})
+  let product=await productCollectionObject.find({productname:pname}).toArray()
   // send response
   //if product not found it receives null
-  if(product===null){
+  if(product.length===0){
     response.send({message:"product does not exist"})
   }
   // else send product object as payload

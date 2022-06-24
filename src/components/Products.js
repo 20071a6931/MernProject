@@ -13,6 +13,7 @@ function Products() {
       console.log(response);
       setProductsList(response.data.payload);
     })
+    .catch((err)=>{alert("error occurred")})
       },[]
     )
 
