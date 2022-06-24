@@ -71,8 +71,7 @@ function Header() {
 
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
-    axios
-          .get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
+    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
           .then((response) => {
             console.log(response.data.message);
             //if product received
@@ -83,7 +82,7 @@ function Header() {
                 handleShow();
 
             }
-            else{
+            if(response.data.message === "product does not exist"){
                 alert("Product with given name does not exists");
             }
           })

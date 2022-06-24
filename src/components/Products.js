@@ -5,17 +5,16 @@ import Product from "./Product";
 function Products() {
   let [productsList, setProductsList] = useState([]);
 
-    useEffect(
-      ()=>{
-        axios
-    .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
-    .then((response) => {
-      console.log(response);
-      setProductsList(response.data.payload);
-    })
-    .catch((err)=>{alert("error occurred")})
-      },[]
-    )
+    
+      axios.get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
+        .then((response) => {
+          console.log(response);
+          setProductsList(response.data.payload);
+        })
+        .catch((err) => {
+          alert("error occurred");
+        });
+    
 
   return (
     <div className="text-center">
