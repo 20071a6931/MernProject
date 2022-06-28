@@ -1,5 +1,5 @@
 //create a special route to handle product reqs
-const verifyToken=require("./middlewares/verifyToken")
+// const verifyToken=require("./middlewares/verifyToken")
 
 const exp = require("express");
 const productApp = exp.Router();
@@ -36,7 +36,7 @@ var upload = multer({ storage: cloudinaryStorage });
 
 //to extract body of request object
 productApp.use(exp.json());
-// productApp.use(exp.urlencoded());
+productApp.use(exp.urlencoded());
 //get all products
 productApp.get("/getproducts",expressAsyncHandler(async(request,response)=>{
 
@@ -53,12 +53,12 @@ productApp.get("/getproduct/:productname",expressAsyncHandler(async(request,resp
   // get product collection object
   let productCollectionObject= request.app.get("productCollectionObject")
   //get productname to be found
-  let pname=(request.params.productname)
+  let pname=request.params.productname
   // get product by product name
-  let product=await productCollectionObject.find({productname:pname}).toArray()
+  let product=await productCollectionObject.find({productname:pname})
   // send response
   //if product not found it receives null
-  if(product.length===0){
+  if(product===null){
     response.send({message:"product does not exist"})
   }
   // else send product object as payload

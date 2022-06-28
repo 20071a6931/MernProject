@@ -17,9 +17,7 @@ function Signup() {
 
   //on image select
   const onImageSelect = (event) => {
-    
     setImg(event.target.files[0]);
-    
   };
 
   const navigate = useNavigate();
@@ -32,7 +30,7 @@ function Signup() {
     formData.append("photo", img);
     //http post req
     axios
-      .post("https://e-medicare-react.herokuapp.com/user-api/create-user", formData)
+      .post("http://localhost:4000/user-api/create-user", formData)
       .then((response) => {
         alert(response.data.message);
         //if user created
@@ -53,7 +51,7 @@ function Signup() {
       <div className="row  ">
         <div className="col-12 col-sm-8 col-md-6  mx-auto">
           <Form onSubmit={handleSubmit(onFormSubmit)}>
-          <Form.Group className="mb-3">
+            <Form.Group className="mb-3">
               <Form.Label>Select type of User</Form.Label> <br />
               {/* user type */}
               <Form.Check inline type="radio" id="user">

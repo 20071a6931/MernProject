@@ -12,13 +12,17 @@ const Changepassword = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   const onFormSubmit = (user) => {
     user.username = userObj.username;
-    let token=localStorage.getItem("token")
-    if (user.newpassword===user.confirmpassword){
+    let token = localStorage.getItem("token");
+    if (user.newpassword === user.confirmpassword) {
       axios
-        .put("https://e-medicare-react.herokuapp.com/user-api/update-password",{headers:{Authorization:"Bearer "+token}}, user)
+        .put(
+          "http://localhost:4000/user-api/update-password",
+          { headers: { Authorization: "Bearer " + token } },
+          user
+        )
         .then((response) => {
           alert(response.data.message);
           //if password updated
@@ -30,11 +34,9 @@ const Changepassword = () => {
           console.log(error);
           alert("Something went wrong in updating password");
         });
-    }
-    else{
+    } else {
       alert("confirm password should be same as new password");
     }
- 
   };
 
   return (

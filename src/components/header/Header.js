@@ -1,6 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Container, Form, Modal, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import {
+  Button,
+  Container,
+  Form,
+  Modal,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiFillHome } from "react-icons/ai";
 import { BiLogIn, BiSearchAlt2 } from "react-icons/bi";
@@ -13,7 +21,7 @@ import {
   NavLink,
   Route,
   Routes,
-  useNavigate
+  useNavigate,
 } from "react-router-dom";
 import Navlogo from "../../images/navlogo.png";
 import { clearLoginStatus } from "../../slices/userSlice";
@@ -62,45 +70,46 @@ function Header() {
     formState: { errors },
   } = useForm();
 
-  let [show,setShow]=useState(false)
-  const [obj,setObj]=useState({})
+  let [show, setShow] = useState(false);
+  const [obj, setObj] = useState({});
 
   const handleShow = () => setShow(true);
-  
+
   const handleClose = () => setShow(false);
 
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
-    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
-          .then((response) => {
-            console.log(response.data.message);
-            //if product received
-            if (response.data.message === "found") {
-                console.log("product received");
-                console.log(response.data.payload);
-                setObj(response.data.payload)
-                handleShow();
-
-            }
-            if(response.data.message === "product does not exist"){
-                alert("Product with given name does not exists");
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-            alert("Something went wrong in getting product");
-          });
-    
+    axios
+      .get(
+        "http://localhost:4000/product-api/getproduct/" + searchItem.productname
+      )
+      .then((response) => {
+        console.log(response.data.message);
+        //if product received
+        if (response.data.message === "found") {
+          console.log("product received");
+          console.log(response.data.payload);
+          setObj(response.data.payload);
+          handleShow();
+        }
+        if (response.data.message === "product does not exist") {
+          alert("Product with given name does not exists");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Something went wrong in getting product");
+      });
   };
 
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-        <Modal.Title>{obj.productname}</Modal.Title>
+          <Modal.Title>{obj.productname}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <Productone  productObj={obj}/>
+          <Productone productObj={obj} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -171,22 +180,23 @@ function Header() {
               )}
             </Nav>
             <div className="ps-3">
-            <Form className="d-flex " onSubmit={handleSubmit(onFormSubmit)}>
-              <Form.Control
-                type="search"
-                placeholder="Enter product name to search"
-                {...register("productname", { required: true })}
-                className="me-2"
-                aria-label="Search"
-              />
-              {/* validation error message for search */}
-              {errors.search && (
-                <p className="text-danger">* productname is required</p>
-              )}
-              <Button variant="outline-primary" type="submit">
-                <BiSearchAlt2/>Search
-              </Button>
-            </Form>
+              <Form className="d-flex " onSubmit={handleSubmit(onFormSubmit)}>
+                <Form.Control
+                  type="search"
+                  placeholder="Enter product name to search"
+                  {...register("productname", { required: true })}
+                  className="me-2"
+                  aria-label="Search"
+                />
+                {/* validation error message for search */}
+                {errors.search && (
+                  <p className="text-danger">* productname is required</p>
+                )}
+                <Button variant="outline-primary" type="submit">
+                  <BiSearchAlt2 />
+                  Search
+                </Button>
+              </Form>
             </div>
           </Navbar.Collapse>
         </Container>

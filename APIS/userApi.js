@@ -37,7 +37,7 @@ var upload = multer({ storage: cloudinaryStorage });
 
 //to extract body of request object
 userApp.use(exp.json());
-// userApp.use(exp.urlencoded());
+userApp.use(exp.urlencoded());
 
 //USER API Routes
 
