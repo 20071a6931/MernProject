@@ -81,7 +81,8 @@ function Header() {
     console.log(searchItem);
     axios
       .get(
-        "http://localhost:4000/product-api/getproduct/" + searchItem.productname
+        "https://e-medicare-react.herokuapp.com/product-api/getproduct/" +
+          searchItem.productname
       )
       .then((response) => {
         console.log(response.data.message);

@@ -16,7 +16,8 @@ const Delproducts = () => {
     //http post req
     axios
       .delete(
-        "http://localhost:4000/product-api/remove-product/" + productObj.id
+        "https://e-medicare-react.herokuapp.com/product-api/remove-product/" +
+          productObj.id
       )
       .then((response) => {
         //if user created
