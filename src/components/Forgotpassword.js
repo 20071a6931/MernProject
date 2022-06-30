@@ -15,7 +15,7 @@ const Forgotpassword = () => {
 
     axios
       .put(
-        "https://e-medicare-react.herokuapp.com/user-api/update-password",
+        "https://e-pharmacy-react.herokuapp.com/user-api/update-password",
         { headers: { Authorization: "Bearer " + token } },
         user
       )

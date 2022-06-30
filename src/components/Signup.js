@@ -31,7 +31,7 @@ function Signup() {
     //http post req
     axios
       .post(
-        "https://e-medicare-react.herokuapp.com/user-api/create-user",
+        "https://e-pharmacy-react.herokuapp.com/user-api/create-user",
         formData
       )
       .then((response) => {

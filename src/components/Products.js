@@ -7,7 +7,7 @@ function Products() {
 
   useEffect(() => {
     axios
-      .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
+      .get("https://e-pharmacy-react.herokuapp.com/product-api/getproducts")
       .then((response) => {
         console.log(response.data.payload);
         setProductsList(response.data.payload);

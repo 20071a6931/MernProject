@@ -30,7 +30,7 @@ const Addproducts = () => {
     //http post req
     axios
       .post(
-        "https://e-medicare-react.herokuapp.com/product-api/create-product",
+        "https://e-pharmacy-react.herokuapp.com/product-api/create-product",
         formData
       )
       .then((response) => {
