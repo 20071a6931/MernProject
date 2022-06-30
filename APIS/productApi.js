@@ -43,7 +43,7 @@ productApp.get("/getproducts",expressAsyncHandler(async(request,response)=>{
   //get productCollectionObject
   let productCollectionObject = request.app.get("productCollectionObject");
   //read all products
-  let products=await productCollectionObject.find().toArray()
+  let products=await productCollectionObject.find().toArray();
   //send response
   response.send({message:"All products",payload:products})
 }));
@@ -55,7 +55,7 @@ productApp.get("/getproduct/:productname",expressAsyncHandler(async(request,resp
   //get productname to be found
   let pname=request.params.productname
   // get product by product name
-  let product=await productCollectionObject.find({productname:pname})
+  let product=await productCollectionObject.findOne({productname:pname})
   // send response
   //if product not found it receives null
   if(product===null){

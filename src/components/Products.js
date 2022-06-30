@@ -9,11 +9,11 @@ function Products() {
     axios
       .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
       .then((response) => {
-        console.log(response);
+        console.log(response.data.payload);
         setProductsList(response.data.payload);
       })
       .catch((err) => {
-        alert("error occurred");
+        alert("err occured");
       });
   }, []);
 

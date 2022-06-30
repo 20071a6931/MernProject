@@ -7,10 +7,13 @@ function Productsone() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/product-api/getproducts")
+      .get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
       .then((response) => {
-        console.log(response);
+        console.log(response.data.payload);
         setProductsList(response.data.payload);
+      })
+      .catch((err) => {
+        alert("err occured");
       });
   }, []);
 

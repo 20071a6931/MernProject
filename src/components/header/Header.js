@@ -92,8 +92,7 @@ function Header() {
           console.log(response.data.payload);
           setObj(response.data.payload);
           handleShow();
-        }
-        if (response.data.message === "product does not exist") {
+        } else {
           alert("Product with given name does not exists");
         }
       })
