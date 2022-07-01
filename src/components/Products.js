@@ -13,6 +13,7 @@ function Products() {
         setProductsList(response.data.payload);
       })
       .catch((err) => {
+        console.log(err);
         alert("err occured");
       });
   }, []);
@@ -22,11 +23,11 @@ function Products() {
       <p className="display-2 phead">Medicines</p>
       <hr />
 
-      <div className="d-flex card-group abc">
+      { productsList && <div className="d-flex card-group abc">
         {productsList.map((productObj, index) => (
           <Product key={index} productObj={productObj} />
         ))}
-      </div>
+      </div>}
     </div>
   );
 }
