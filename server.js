@@ -2,7 +2,7 @@
 const exp = require("express");
 const app = exp();
 const mclient=require("mongodb").MongoClient;
-
+const cors = require('cors')
 require('dotenv').config()
 
 //import path module
@@ -55,6 +55,8 @@ const productApp = require("./APIS/productApi");
 app.use("/user-api", userApp);
 app.use("/product-api", productApp);
 
+// cors handling middleware
+app.use(cors())
 
 //dealing with page refresh
 app.use('*',(request,response)=>{
