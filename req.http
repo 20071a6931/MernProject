@@ -1,4 +1,8 @@
-GET http://localhost:4000/product-api/getproducts
+GET https://e-pharmacy-react.herokuapp.com/product-api/getproducts
 
 ###
-GET http://localhost:4000/product-api/getproduct/productname
+GET https://e-pharmacy-react.herokuapp.com/product-api/getproduct/Coldarin
+
+###
+DELETE https://e-pharmacy-react.herokuapp.com/product-api/remove-product/6
+
