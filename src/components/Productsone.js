@@ -15,8 +15,6 @@ function Productsone() {
     .catch((err) => {
         alert("error occured");
         console.log(err);
-        console.log(response.data.payload);
-        console.log(response.data.message);
       })
   }, []);
 
