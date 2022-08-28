@@ -29,12 +29,8 @@ function Signup() {
     formData.append("userObj", JSON.stringify(userObj));
     formData.append("photo", img);
     //http post req
-    axios
-      .post(
-        "http://localhost:4000/user-api/create-user",
-        formData
-      )
-      .then((response) => {
+    axios.post("https://e-medicare-react.herokuapp.com/user-api/create-user",formData)
+    .then((response) => {
         alert(response.data.message);
         //if user created
         if (response.data.message === "New User created") {
@@ -42,10 +38,10 @@ function Signup() {
           navigate("/login");
         }
       })
-      .catch((error) => {
+    .catch((error) => {
         console.log(error);
         alert("Something went wrong in creating user");
-      });
+      })
   };
 
   return (

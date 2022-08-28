@@ -9,7 +9,7 @@ require('dotenv').config()
 const path=require('path');
 
 //connect build of react app with nodejs
-app.use(exp.static(path.join(__dirname,'./build')))
+app.use(exp.static(path.join(__dirname,"./build")))
 
 //DB connection URL
 const DBurl=process.env.DATABASE_CONNECTION_URL;
@@ -26,8 +26,8 @@ if (process.env.NODE_ENV==="production"){
   })
 }
 
-
 // ---------------deployment----------------
+
 //connect with mongoDB server
 mclient.connect(DBurl)
 .then((client)=>{

@@ -28,12 +28,8 @@ const Addproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http post req
-    axios
-      .post(
-        "http://localhost:4000/product-api/create-product",
-        formData
-      )
-      .then((response) => {
+    axios.post("https://e-medicare-react.herokuapp.com/product-api/create-product",formData)
+    .then((response) => {
         //if user created
         if (response.data.message === "Product created successfully") {
           alert("New product created");
@@ -42,10 +38,10 @@ const Addproducts = () => {
           alert("Login to access add products");
         }
       })
-      .catch((error) => {
+    .catch((error) => {
         console.log(error);
         alert("Something went wrong in creating product");
-      });
+      })
   };
   return (
     <div>

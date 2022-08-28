@@ -28,18 +28,14 @@ const Updateproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http put request
-    axios
-      .put(
-        "http://localhost:4000/product-api/update-product",
-        formData
-      )
-      .then((response) => {
+    axios.put("https://e-medicare-react.herokuapp.com/product-api/update-product",formData)
+    .then((response) => {
         //if product created
         if (response.data.message === "Product modified") {
           alert("Product Updated");
         }
       })
-      .catch((error) => {
+    .catch((error) => {
         console.log(error);
         alert("Something went wrong in updating product");
       });

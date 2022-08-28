@@ -14,12 +14,8 @@ const Delproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http post req
-    axios
-      .delete(
-        "http://localhost:4000/product-api/remove-product/" +
-          productObj.id
-      )
-      .then((response) => {
+    axios.delete("https://e-medicare-react.herokuapp.com/product-api/remove-product/" +productObj.id)
+    .then((response) => {
         //if user created
         if (response.data.message === "product deleted") {
           alert("Product deleted ");
@@ -28,10 +24,10 @@ const Delproducts = () => {
           console.log(response.data.payload);
         }
       })
-      .catch((error) => {
+    .catch((error) => {
         console.log(error);
         alert("Something went wrong in deleting product");
-      });
+      })
   };
   return (
     <div>

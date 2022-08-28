@@ -13,23 +13,18 @@ const Forgotpassword = () => {
   const onFormSubmit = (user) => {
     let token = localStorage.getItem("token");
 
-    axios
-      .put(
-        "http://localhost:4000/user-api/update-password",
-        { headers: { Authorization: "Bearer " + token } },
-        user
-      )
-      .then((response) => {
+    axios.put("https://e-medicare-react.herokuapp.com/user-api/update-password",{ headers: { Authorization: "Bearer " + token } },user)
+    .then((response) => {
         alert(response.data.message);
         //if password updated
         if (response.data.message === "New Password Updated") {
           alert("Password updated");
         }
       })
-      .catch((error) => {
+    .catch((error) => {
         console.log(error);
         alert("Something went wrong in updating password");
-      });
+      })
   };
 
   return (

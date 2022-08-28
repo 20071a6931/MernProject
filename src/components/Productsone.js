@@ -6,15 +6,14 @@ function Productsone() {
   let [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/product-api/getproducts")
-      .then((response) => {
+    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
+    .then((response) => {
         console.log(response.data.payload);
         setProductsList(response.data.payload);
       })
-      .catch((err) => {
+    .catch((err) => {
         alert("err occured");
-      });
+      })
   }, []);
 
   return (
