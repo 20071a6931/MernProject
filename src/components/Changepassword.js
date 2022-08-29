@@ -15,9 +15,9 @@ const Changepassword = () => {
 
   const onFormSubmit = (user) => {
     user.username = userObj.username;
-    let token = localStorage.getItem("token");
+    // let token = localStorage.getItem("token");
     if (user.newpassword === user.confirmpassword) {
-      axios.put("https://e-medicare-react.herokuapp.com/user-api/update-password",{ headers: { Authorization: "Bearer " + token } },user)
+      axios.put("https://e-medicare-react.herokuapp.com/user-api/update-password",user)
       .then((response) => {
           alert(response.data.message);
           //if password updated

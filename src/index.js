@@ -9,15 +9,13 @@ import { store } from "./store";
 import { Provider } from "react-redux";
 import {CartProvider} from 'react-use-cart'
 ReactDOM.render(
-  <React.StrictMode>
     <CartProvider>
     <BrowserRouter>
     <Provider store={store}>
     <App />
     </Provider>
     </BrowserRouter>
-    </CartProvider>
-  </React.StrictMode>,
+    </CartProvider>,
   document.getElementById('root')
 );
 

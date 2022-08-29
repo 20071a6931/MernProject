@@ -11,9 +11,9 @@ const Forgotpassword = () => {
   } = useForm();
 
   const onFormSubmit = (user) => {
-    let token = localStorage.getItem("token");
+    // let token = localStorage.getItem("token");
 
-    axios.put("https://e-medicare-react.herokuapp.com/user-api/update-password",{ headers: { Authorization: "Bearer " + token } },user)
+    axios.put("https://e-medicare-react.herokuapp.com/user-api/update-password",user)
     .then((response) => {
         alert(response.data.message);
         //if password updated
