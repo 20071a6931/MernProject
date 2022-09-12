@@ -11,7 +11,7 @@ require("dotenv").config();
 var cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
-const { response } = require("express");
+// const { response } = require("express");
 //configure cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -44,8 +44,12 @@ productApp.get("/getproducts",expressAsyncHandler(async(request,response)=>{
   let productCollectionObject = request.app.get("productCollectionObject");
   //read all products
   let products=await productCollectionObject.find().toArray();
-  //send response
+  if(products===null){
+    response.send({message:"no products received from mongodb"})
+  }
+  else{
   response.send({message:"All products",payload:products})
+  }
 }));
 
 // get product by productname

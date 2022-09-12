@@ -10,7 +10,12 @@ function Products() {
     .then((response) => {
         console.log(response.data.payload);
         console.log(response.data.message);
+        if(response.data.message==="no products received from mongodb"){
+          alert("no products received from mongodb");
+        }
+        else{
         setProductsList(response.data.payload);
+      }
       })
     .catch((err) => {
         alert("error occured");
