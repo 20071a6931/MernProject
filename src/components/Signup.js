@@ -29,7 +29,7 @@ function Signup() {
     formData.append("userObj", JSON.stringify(userObj));
     formData.append("photo", img);
     //http post req
-    axios.post("https://e-medicare-react.herokuapp.com/user-api/create-user",formData)
+    axios.post("https://mern-project-ecru.vercel.app/user-api/create-user",formData)
     .then((response) => {
         alert(response.data.message);
         //if user created

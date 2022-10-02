@@ -2,7 +2,7 @@
 const exp = require("express");
 const app = exp();
 const mclient=require("mongodb").MongoClient;
-
+const cors=require("cors")
 require('dotenv').config()
 
 //import path module
@@ -10,7 +10,7 @@ const path=require('path');
 
 //connect build of react app with nodejs
 app.use(exp.static(path.join(__dirname,"./build")))
-
+app.use(cors())
 //DB connection URL
 const DBurl=process.env.DATABASE_CONNECTION_URL;
 
