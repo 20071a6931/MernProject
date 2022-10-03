@@ -28,7 +28,7 @@ const Updateproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http put request
-    axios.put("https://mern-project-ecru.vercel.app/product-api/update-product",formData)
+    axios.put("https://e-medicare-react.herokuapp.com/product-api/update-product",formData)
     .then((response) => {
         //if product created
         if (response.data.message === "Product modified") {

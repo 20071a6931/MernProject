@@ -89,8 +89,7 @@ userApp.post(
     if (userOfDB == null) {
       response.send({ message: "Invalid user" });
     }
-    //if username existed
-    else {
+    else {                                   //if username existed
       //compare passwords
       let status = await bcryptjs.compare(
         userCredObj.password,
@@ -100,8 +99,7 @@ userApp.post(
       if (status == false) {
         response.send({ message: "Invalid password" });
       }
-      //if passwords are matched
-      else {
+      else {                        //if passwords are matched
         //create token
         let token = jwt.sign(
           { username: userOfDB.username },
@@ -139,8 +137,7 @@ userApp.post(
           message: "Username has already taken..Plz choose another",
         });
       }
-      //if user not existed
-      else {
+      else {                              //if user not existed
         //hash password
         let hashedPassword = await bcryptjs.hash(newUserObj.password, 6);
         //replace plain password with hashed password in newUserObj

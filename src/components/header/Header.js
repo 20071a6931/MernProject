@@ -47,7 +47,7 @@ function Header() {
   let { userObj, isError, isLoading, isSuccess, errMsg } = useSelector(
     (state) => state.user
   );
-  //get dispathc function
+  //get dispatch function
   let dispatch = useDispatch();
 
   //get navigate function
@@ -79,7 +79,7 @@ function Header() {
 
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
-    axios.get("https://mern-project-ecru.vercel.app/product-api/getproduct/"+searchItem.productname)
+    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
     .then((response) => {
         console.log(response.data.message);
         console.log(response.data.payload);

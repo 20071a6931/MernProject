@@ -65,8 +65,7 @@ productApp.get("/getproduct/:productname",expressAsyncHandler(async(request,resp
   if(product===null){
     response.send({message:"product does not exist"})
   }
-  // else send product object as payload
-  else{
+  else{                                         // else send product object as payload
     response.send({message:"found",payload:product})
   }
 
@@ -121,8 +120,7 @@ productApp.delete("/remove-product/:id",expressAsyncHandler(async(request,respon
   if(product===null){
     response.send({message:'product not existed'})
   }
-  // if product existed
-  else{
+  else{                             // if product existed
   response.send({message:'product deleted'})
   }
 }))
