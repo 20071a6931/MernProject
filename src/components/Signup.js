@@ -4,6 +4,7 @@ import { Form, Button, Container } from "react-bootstrap";
 import { MdLogin } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 function Signup() {
   const {
@@ -22,6 +23,8 @@ function Signup() {
 
   const navigate = useNavigate();
 
+  const notify = () => toast.success('Signup successful');
+
   const onFormSubmit = (userObj) => {
     //create FormData object
     let formData = new FormData();
@@ -29,7 +32,7 @@ function Signup() {
     formData.append("userObj", JSON.stringify(userObj));
     formData.append("photo", img);
     //http post req
-    axios.post("https://e-medicare-react.herokuapp.com/user-api/create-user",formData)
+    axios.post(`${process.env.REACT_APP_LINK_WEBSITE}/user-api/create-user`,formData)
     .then((response) => {
         alert(response.data.message);
         //if user created
@@ -138,9 +141,10 @@ function Signup() {
               )}
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="m-4">
+            <Button variant="primary" type="submit" className="m-4" onClick={notify}>
               Signup <MdLogin />
             </Button>
+            <Toaster />
           </Form>
         </div>
       </div>

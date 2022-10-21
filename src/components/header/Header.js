@@ -57,6 +57,7 @@ function Header() {
   const userLogout = () => {
     localStorage.clear();
     dispatch(clearLoginStatus());
+    alert("logged out successfully");
     navigate("/login");
   };
   // change password
@@ -79,7 +80,7 @@ function Header() {
 
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
-    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproduct/"+searchItem.productname)
+    axios.get(`${process.env.REACT_APP_LINK_WEBSITE}/product-api/getproduct/`+searchItem.productname)
     .then((response) => {
         console.log(response.data.message);
         console.log(response.data.payload);

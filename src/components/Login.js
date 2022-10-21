@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import loginImg from "../images/login.svg";
 import { userLogin } from "../slices/userSlice";
+import toast, { Toaster } from 'react-hot-toast';
 
 function Login() {
   const {
@@ -29,6 +30,8 @@ function Login() {
     console.log(userCredentialsObject);
     dispatch(userLogin(userCredentialsObject));
   };
+
+  const notify = () => toast.success('Login successful');
 
   //this to be executed when either isSuccess or isError changed
   useEffect(() => {
@@ -84,9 +87,10 @@ function Login() {
             </Form.Group>
             <div className="row mb-4">
               <div className="col-5">
-                <Button variant="secondary" type="submit">
+                <Button variant="secondary" type="submit" onClick={notify}>
                   Login
                 </Button>
+                <Toaster />
               </div>
               <div className="col-5">
                 <Button variant="danger" href="/forgotpassword">

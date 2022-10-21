@@ -41,7 +41,7 @@
 }
 
 .backg{
-  background:linear-gradient(to left top, blue, red);
+  background-color: #6027A5;
   color: white;
   background-size: cover;
 }

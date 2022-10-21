@@ -28,7 +28,7 @@ const Addproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http post req
-    axios.post("https://e-medicare-react.herokuapp.com/product-api/create-product",formData)
+    axios.post(`${process.env.REACT_APP_LINK_WEBSITE}/product-api/create-product`,formData)
     .then((response) => {
         //if user created
         if (response.data.message === "Product created successfully") {

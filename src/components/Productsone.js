@@ -6,7 +6,7 @@ function Productsone() {
   let [productsList, setProductsList] = useState([]);
 
   useEffect(() => {
-    axios.get("https://e-medicare-react.herokuapp.com/product-api/getproducts")
+    axios.get(`${process.env.REACT_APP_LINK_WEBSITE}/product-api/getproducts`)
     .then((response) => {
         console.log(response.data.payload);
         console.log(response.data.message);
