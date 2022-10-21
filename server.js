@@ -16,15 +16,20 @@ const DBurl=process.env.DATABASE_CONNECTION_URL;
 
 // ---------------deployment--------------- 
 // const __dirname1=path.resolve();
-if (process.env.NODE_ENV==="production"){
-  app.use(exp.static(path.join(__dirname,"./build")))
-  app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
-    res.sendFile(path.join(__dirname, './build/index.html'));
-  });
-  app.get('*',(request,response)=>{
-    response.sendFile(path.resolve(__dirname,'build','index.html'))
-  })
-}
+// if (process.env.NODE_ENV==="production"){
+//   app.use(exp.static(path.join(__dirname,"./build")))
+//   app.get(/^\/(?!api).*/, (req, res) => { // don't serve api routes to react app
+//     res.sendFile(path.join(__dirname, './build/index.html'));
+//   });
+//   app.get('*',(request,response)=>{
+//     response.sendFile(path.resolve(__dirname,'build','index.html'))
+//   })
+// }
+
+app.get('/',(req,res)=>{
+  app.use(exp.static(path.resolve(__dirname,"./build")))
+  res.sendFile(path.resolve(__dirname,"./build","index.html"))
+})
 
 // ---------------deployment----------------
 
@@ -51,6 +56,7 @@ mclient.connect(DBurl)
 //import userApp and productApp
 const userApp = require("./APIS/userApi");
 const productApp = require("./APIS/productApi");
+const res = require("express/lib/response");
 //excute specific middleware based on path
 app.use("/user-api", userApp);
 app.use("/product-api", productApp);
