@@ -48,10 +48,6 @@ function Home() {
             alt="Third slide"
           />
 
-          <Carousel.Caption>
-            <h3>Rush!!!!</h3>
-            
-          </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img

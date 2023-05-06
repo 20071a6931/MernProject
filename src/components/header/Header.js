@@ -80,7 +80,7 @@ function Header() {
 
   const onFormSubmit = (searchItem) => {
     console.log(searchItem);
-    axios.get(`${process.env.REACT_APP_LINK_WEBSITE}/product-api/getproduct/`+searchItem.productname)
+    axios.get("/product-api/getproduct/"+searchItem.productname)
     .then((response) => {
         console.log(response.data.message);
         console.log(response.data.payload);

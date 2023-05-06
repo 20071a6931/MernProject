@@ -28,7 +28,7 @@ const Updateproducts = () => {
     // let token=localStorage.getItem("token");
     // ,{headers:{Authorization:"Bearer "+token}}
     //http put request
-    axios.put(`${process.env.REACT_APP_LINK_WEBSITE}/product-api/update-product`,formData)
+    axios.put("/product-api/update-product",formData)
     .then((response) => {
         //if product created
         if (response.data.message === "Product modified") {
