@@ -17,8 +17,8 @@ const DBurl=process.env.DATABASE_CONNECTION_URL;
 // ---------------deployment--------------- 
 
 app.get('/',(req,res)=>{
-  app.use(exp.static(path.resolve(__dirname,"./build")))
-  res.sendFile(path.resolve(__dirname,"./build","index.html"))
+  app.use(exp.static(path.resolve(__dirname,'./build')))
+  res.sendFile(path.resolve(__dirname,'./build','index.html'))
 })
 
 // ---------------deployment----------------
