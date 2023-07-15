@@ -4,7 +4,7 @@ import axios from 'axios';
 //make HTTP POST req to login user
 export const userLogin=createAsyncThunk('loginuser',async(userCredentialsObject,thunkApi)=>{
 
-    let response=await axios.post('/user-api/login',userCredentialsObject);
+    let response=await axios.post(`${process.env.REACT_APP_SERVER_URL}/user-api/login`,userCredentialsObject);
     let data=response.data;
     if(data.message==="login successful"){
       //store token in local storage
