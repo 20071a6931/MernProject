@@ -17,7 +17,7 @@ const Changepassword = () => {
     user.username = userObj.username;
     // let token = localStorage.getItem("token");
     if (user.newpassword === user.confirmpassword) {
-      axios.put("/user-api/update-password",user)
+      axios.put(`${process.env.REACT_APP_SERVER_URL}/user-api/update-password`,user)
       .then((response) => {
           alert(response.data.message);
           //if password updated

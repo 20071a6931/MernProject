@@ -32,7 +32,7 @@ function Signup() {
     formData.append("userObj", JSON.stringify(userObj));
     formData.append("photo", img);
     //http post req
-    axios.post("/user-api/create-user",formData)
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/user-api/create-user`,formData)
     .then((response) => {
         alert(response.data.message);
         //if user created

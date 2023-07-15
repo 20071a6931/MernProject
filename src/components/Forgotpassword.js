@@ -13,7 +13,7 @@ const Forgotpassword = () => {
   const onFormSubmit = (user) => {
     // let token = localStorage.getItem("token");
 
-    axios.put("/user-api/update-password",user)
+    axios.put(`${process.env.REACT_APP_SERVER_URL}/user-api/update-password`,user)
     .then((response) => {
         alert(response.data.message);
         //if password updated
