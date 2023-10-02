@@ -19,7 +19,7 @@ const Changepassword = () => {
     if (user.newpassword === user.confirmpassword) {
       axios.put(`${process.env.REACT_APP_SERVER_URL}/user-api/update-password`,user)
       .then((response) => {
-          alert(response.data.message);
+          // alert(response.data.message);
           //if password updated
           if (response.data.message === "New Password Updated") {
             alert("Password updated");

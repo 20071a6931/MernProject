@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Forgotpassword = () => {
   const {
@@ -9,16 +10,17 @@ const Forgotpassword = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const navigate= useNavigate();
   const onFormSubmit = (user) => {
     // let token = localStorage.getItem("token");
 
     axios.put(`${process.env.REACT_APP_SERVER_URL}/user-api/update-password`,user)
     .then((response) => {
-        alert(response.data.message);
+        // alert(response.data.message);
         //if password updated
         if (response.data.message === "New Password Updated") {
-          alert("Password updated");
+          alert("Password updated, now go back to login");
+          navigate('/login');
         }
       })
     .catch((error) => {

@@ -33,6 +33,10 @@ function Login() {
 
   const notify = () => toast.success('Login successful');
 
+  const forgotpass =()=>{
+    navigate('/forgotpassword')
+  }
+
   //this to be executed when either isSuccess or isError changed
   useEffect(() => {
     if (isSuccess) {
@@ -93,7 +97,7 @@ function Login() {
                 <Toaster />
               </div>
               <div className="col-5">
-                <Button variant="danger" href="/forgotpassword">
+                <Button variant="danger" onClick={forgotpass}>
                   Forgot Password
                 </Button>
               </div>
